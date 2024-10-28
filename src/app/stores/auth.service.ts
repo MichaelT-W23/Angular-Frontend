@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { StarredService } from './starred.service';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +19,7 @@ export class AuthService {
 
   user$ = this.userSubject.asObservable();
 
-  constructor() {}
+  constructor(private starredService: StarredService) {}
 
   login(userData: any): boolean {
     localStorage.setItem('username', userData.user.username);
@@ -39,6 +40,10 @@ export class AuthService {
     const resetUser = { username: null, email: null, userId: null, notes: [], tags: [], accessToken: null, refreshToken: null };
     this.userSubject.next(resetUser);
 
+    this.starredService.clearAllStarredNotes();
+
+    console.log("YOU LOGGED OUT!!!!");
+    
     localStorage.removeItem('username');
     localStorage.removeItem('email');
     localStorage.removeItem('userId');

@@ -26,6 +26,7 @@ export class MainPageComponent implements OnInit {
     // Use this.userId to refer to the initialized userId
     this.notesService.getAllUserNotes(this.userId).subscribe((notes: any[]) => {
       this.userNotes = notes;
+      this.authStore.setNotes(this.userNotes);
     });
   }
 }
