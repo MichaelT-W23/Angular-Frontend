@@ -20,36 +20,21 @@ export class AuthService {
 
   constructor() {}
 
-  login(userData: { username: string; password: string }): Promise<{ user: { id: string; username: string; email: string }; access: string; refresh: string }> {
-    return new Promise((resolve, reject) => {
-      
-      const response = {
-        user: {
-          id: '123',
-          username: userData.username,
-          email: `${userData.username}@example.com`,
-        },
-        access: 'access_token_example',
-        refresh: 'refresh_token_example',
-      };
+  login(userData: any): boolean {
+    localStorage.setItem('username', userData.user.username);
+    localStorage.setItem('email', userData.user.email);
+    localStorage.setItem('userId', userData.user.id);
+    localStorage.setItem('accessToken', userData.access);
+    localStorage.setItem('refreshToken', userData.refresh);
   
-      try {
-        this.userSubject.next(response);
-
-        localStorage.setItem('username', response.user.username);
-        localStorage.setItem('email', response.user.email);
-        localStorage.setItem('userId', response.user.id);
-        localStorage.setItem('accessToken', response.access);
-        localStorage.setItem('refreshToken', response.refresh);
-
-        resolve(response);
-      } catch (error) {
-        reject(error);
-      }
-      
+    this.userSubject.next({
+      username: userData.user.username,
     });
+  
+    return true;
   }
   
+
   logout() {
     const resetUser = { username: null, email: null, userId: null, notes: [], tags: [], accessToken: null, refreshToken: null };
     this.userSubject.next(resetUser);

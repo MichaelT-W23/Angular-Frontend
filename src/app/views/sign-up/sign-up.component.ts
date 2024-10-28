@@ -33,7 +33,7 @@ export class SignUpComponent {
       if (response && response.user) {
         const loginResponse = await this.authService.login(response);
 
-        if (loginResponse && loginResponse.user) {
+        if (loginResponse) {
           this.authService.logout();
           this.router.navigate(['/Dashboard']);
         } else {

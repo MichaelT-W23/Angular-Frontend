@@ -1,0 +1,40 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 30px;
+  background-color: navy;
+  color: #fff;
+  width: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  height: 70px;
+}
+
+.navbar-left .username {
+  font-size: 23px; /* Moderate increase in font size */
+  font-weight: bold;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 16px;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 21px; /* Moderate increase in font size */
+  padding: 12px;
+  border-radius: 4px; /* Slight rounding */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Simple highlight effect on hover */
+  color: #fff;
+  cursor: pointer;
+}
