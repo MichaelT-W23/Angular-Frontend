@@ -9,15 +9,15 @@ export class NotesAPIService {
   constructor(private apiService: AxiosService) {}
 
   public getUserNotes(userId: string): Observable<any> {
-    return this.apiService.get(`/notes/users/${userId}/notes`);
+    return this.apiService.get(`/notes/users/${userId}/notes/`);
   }
 
   public getNotesByTag(tagName: string): Observable<any> {
-    return this.apiService.get(`/notes/tag/${tagName}`);
+    return this.apiService.get(`/notes/tag/${tagName}/`);
   }
 
   public getAllTags(userId: string): Observable<any> {
-    return this.apiService.get(`/notes/users/${userId}/tag`);
+    return this.apiService.get(`/notes/users/${userId}/tag/`);
   }
 
 }

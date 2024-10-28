@@ -9,14 +9,14 @@ export class UserAPIService {
   constructor(private apiService: AxiosService) {}
 
   public registerUser(userData: any): Observable<any> {
-    return this.apiService.post('/users/register', userData);
+    return this.apiService.post('/users/register/', userData);
   }
 
   public loginUser(userData: any): Observable<any> {
-    return this.apiService.post('/users/login', userData);
+    return this.apiService.post('/users/login/', userData);
   }
 
   public getUserByUsername(username: string): Observable<any> {
-    return this.apiService.get(`/users/${username}`);
+    return this.apiService.get(`/users/${username}/`);
   }
 }
