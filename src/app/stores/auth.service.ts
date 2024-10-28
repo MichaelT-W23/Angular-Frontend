@@ -20,25 +20,36 @@ export class AuthService {
 
   constructor() {}
 
-  login(userData: { user: { id: string; username: string; email: string }, access: string, refresh: string }) {
-    const updatedUser = {
-      ...this.userSubject.value,
-      username: userData.user.username,
-      email: userData.user.email,
-      userId: userData.user.id,
-      accessToken: userData.access,
-      refreshToken: userData.refresh,
-    };
+  login(userData: { username: string; password: string }): Promise<{ user: { id: string; username: string; email: string }; access: string; refresh: string }> {
+    return new Promise((resolve, reject) => {
+      
+      const response = {
+        user: {
+          id: '123',
+          username: userData.username,
+          email: `${userData.username}@example.com`,
+        },
+        access: 'access_token_example',
+        refresh: 'refresh_token_example',
+      };
+  
+      try {
+        this.userSubject.next(response);
 
-    this.userSubject.next(updatedUser);
+        localStorage.setItem('username', response.user.username);
+        localStorage.setItem('email', response.user.email);
+        localStorage.setItem('userId', response.user.id);
+        localStorage.setItem('accessToken', response.access);
+        localStorage.setItem('refreshToken', response.refresh);
 
-    localStorage.setItem('username', userData.user.username);
-    localStorage.setItem('email', userData.user.email);
-    localStorage.setItem('userId', userData.user.id);
-    localStorage.setItem('accessToken', userData.access);
-    localStorage.setItem('refreshToken', userData.refresh);
+        resolve(response);
+      } catch (error) {
+        reject(error);
+      }
+      
+    });
   }
-
+  
   logout() {
     const resetUser = { username: null, email: null, userId: null, notes: [], tags: [], accessToken: null, refreshToken: null };
     this.userSubject.next(resetUser);

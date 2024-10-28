@@ -1,25 +1,17 @@
 <div class="sign-in-container">
-    <h2>Sign In</h2>
-    <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
-      <div>
-        <label for="username">Username</label>
-        <input id="username" formControlName="username" type="text" />
-        <div *ngIf="signInForm.get('username')?.invalid && signInForm.get('username')?.touched">
-          Username is required
-        </div>
-      </div>
-  
-      <div>
-        <label for="password">Password</label>
-        <input id="password" formControlName="password" type="password" />
-        <div *ngIf="signInForm.get('password')?.invalid && signInForm.get('password')?.touched">
-          Password is required
-        </div>
-      </div>
-  
-      <button type="submit" >Sign In</button>
-      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
-      <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
-    </form>
-  </div>
-  
+  <h1>Sign In</h1>
+  <form (ngSubmit)="handleSignIn()">
+    <div class="input-group">
+      <label for="username">Username:</label>
+      <input type="text" [(ngModel)]="username" name="username" id="username" required />
+    </div>
+    <div class="input-group">
+      <label for="password">Password:</label>
+      <input type="password" [(ngModel)]="password" name="password" id="password" required />
+    </div>
+    <button type="submit">Sign In</button>
+  </form>
+  <a routerLink="/Register" class="register-link">Don't Have an Account? Sign up</a>
+
+  <p *ngIf="errorMessage">{{ errorMessage }}</p>
+</div>
