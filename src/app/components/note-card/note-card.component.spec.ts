@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NotesCardComponent } from './notes-card.component';
+import { NoteCardComponent } from './note-card.component';
 
-describe('NotesCardComponent', () => {
-  let component: NotesCardComponent;
-  let fixture: ComponentFixture<NotesCardComponent>;
+describe('NoteCardComponent', () => {
+  let component: NoteCardComponent;
+  let fixture: ComponentFixture<NoteCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NotesCardComponent]
+      imports: [NoteCardComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NotesCardComponent);
+    fixture = TestBed.createComponent(NoteCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -21,3 +21,4 @@ describe('NotesCardComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

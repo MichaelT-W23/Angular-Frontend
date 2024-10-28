@@ -37,12 +37,19 @@ export class AuthService {
   
 
   logout() {
-    const resetUser = { username: null, email: null, userId: null, notes: [], tags: [], accessToken: null, refreshToken: null };
+    const resetUser = { 
+      username: null, 
+      email: null, 
+      userId: null, 
+      notes: [], 
+      tags: [], 
+      accessToken: null, 
+      refreshToken: null 
+    };
+    
     this.userSubject.next(resetUser);
 
     this.starredService.clearAllStarredNotes();
-
-    console.log("YOU LOGGED OUT!!!!");
     
     localStorage.removeItem('username');
     localStorage.removeItem('email');

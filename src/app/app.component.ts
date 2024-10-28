@@ -21,16 +21,15 @@ export class AppComponent implements OnInit {
   constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit() {
-    // Subscribe to router events and filter for NavigationEnd
     this.router.events
       .pipe(filter((event: Event): event is NavigationEnd => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         this.showNavBar = !['/', '/Register'].includes(event.urlAfterRedirects);
       });
 
-    // Subscribe to AuthService's user$ observable to get updates
     this.authService.user$.subscribe(user => {
       this.userName = user.username || '';
     });
   }
+  
 }

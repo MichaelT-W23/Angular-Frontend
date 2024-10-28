@@ -1,18 +1,19 @@
 import { Component, Input, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { StarredService } from '../../stores/starred.service';
-import { DateFormatService } from '../../utils/dates.service';
+import { DateFormatService } from '../../utils/date-format.service';
 import { Subscription } from 'rxjs';
 
 
 @Component({
   selector: 'app-note-card',
   standalone: true,
-  templateUrl: './notes-card.component.html',
-  styleUrls: ['./notes-card.component.scss']
+  templateUrl: './note-card.component.html',
+  styleUrls: ['./note-card.component.scss']
 })
 export class NoteCardComponent implements OnInit, OnDestroy {
   @Input() note: any;
   @Output() starStatusChanged = new EventEmitter<string>();
+  
   isStarred: boolean = false;
   private starredStatusSubscription!: Subscription;
 
@@ -50,4 +51,5 @@ export class NoteCardComponent implements OnInit, OnDestroy {
   formatDate(date: string): string {
     return this.dateFormatService.formatDate(date);
   }
+
 }

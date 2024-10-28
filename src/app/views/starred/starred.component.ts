@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NoteCardComponent } from '../../components/notes-card/notes-card.component';
+import { NoteCardComponent } from '../../components/note-card/note-card.component';
 import { StarredService } from '../../stores/starred.service';
 import { CommonModule } from '@angular/common';
 
@@ -22,4 +22,5 @@ export class StarredComponent implements OnInit {
   onStarStatusChanged(noteId: string): void {
     this.starredNotes = this.starredNotes.filter(note => note.id !== noteId);
   }
+  
 }

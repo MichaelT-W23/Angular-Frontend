@@ -1,8 +1,9 @@
 <div class="starred-notes-container">
-  <div *ngFor="let note of starredNotes">
-    <app-note-card 
-      [note]="note" 
-      (starStatusChanged)="onStarStatusChanged($event)">
-    </app-note-card>
+  <h2 class="title">Starred Notes</h2>
+    <div *ngFor="let note of starredNotes" class="note-card">
+      <app-note-card 
+        [note]="note" 
+        (starStatusChanged)="onStarStatusChanged($event)">
+      </app-note-card>
   </div>
 </div>

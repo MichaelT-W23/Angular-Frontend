@@ -61,10 +61,6 @@ export class StarredService {
   }
 
   getStarredNotes(): any[] {
-    console.log("Starred");
-    console.log(this.notesSubject.value);
-    console.log("Starred Again");
-
     return this.notesSubject.value.filter(note => note.starred);
   }
 
@@ -78,9 +74,6 @@ export class StarredService {
   }
 
   clearAllStarredNotes(): void {
-
-    console.log("FROM CLEARED");
-
     const notes = this.notesSubject.value.map(note => ({ ...note, starred: false }));
     
     this.notesSubject.next(notes);

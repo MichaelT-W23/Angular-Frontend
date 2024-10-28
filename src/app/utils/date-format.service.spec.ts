@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DatesService } from './dates.service';
+import { DateFormatService } from './date-format.service';
 
-describe('DatesService', () => {
-  let service: DatesService;
+describe('DateFormatService', () => {
+  let service: DateFormatService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DatesService);
+    service = TestBed.inject(DateFormatService);
   });
 
   it('should be created', () => {
