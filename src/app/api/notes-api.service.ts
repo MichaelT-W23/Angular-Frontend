@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class NotesAPIService {
   constructor(private apiService: AxiosService) {}
 
-  public getUserNotes(userId: string): Observable<any> {
+  public getUserNotes(userId: number): Observable<any> {
     return this.apiService.get(`/notes/users/${userId}/notes/`);
   }
 
@@ -16,7 +16,7 @@ export class NotesAPIService {
     return this.apiService.get(`/notes/tag/${tagName}/`);
   }
 
-  public getAllTags(userId: string): Observable<any> {
+  public getAllTags(userId: number): Observable<any> {
     return this.apiService.get(`/notes/users/${userId}/tag/`);
   }
 

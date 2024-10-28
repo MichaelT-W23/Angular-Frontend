@@ -66,8 +66,8 @@ export class AuthService {
     localStorage.setItem('userId', id);
   }
 
-  getUserId() {
-    return localStorage.getItem('userId');
+  getUserId(): number{
+    return Number(localStorage.getItem('userId')!);
   }
 
   setNotes(notes: any[]) {

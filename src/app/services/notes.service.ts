@@ -9,7 +9,7 @@ export class NotesService {
 
   constructor(private notesApiService: NotesAPIService) {}
   
-  public getAllUserNotes(userId: string): Observable<any> {
+  public getAllUserNotes(userId: number): Observable<any> {
     return from(this.notesApiService.getUserNotes(userId));
   }
 
@@ -17,7 +17,7 @@ export class NotesService {
     return from(this.notesApiService.getNotesByTag(tagName));
   }
 
-  public getAllUserTags(userId: string): Observable<any> {
+  public getAllUserTags(userId: number): Observable<any> {
     return from(this.notesApiService.getAllTags(userId));
   }
 }

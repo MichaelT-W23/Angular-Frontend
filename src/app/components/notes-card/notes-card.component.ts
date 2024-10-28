@@ -4,10 +4,11 @@ import { DateFormatService } from '../../utils/dates.service';
 
 @Component({
   selector: 'app-note-view',
-  templateUrl: './note-view.component.html',
-  styleUrls: ['./note-view.component.scss']
+  standalone: true,
+  templateUrl: './notes-card.component.html',
+  styleUrls: ['./notes-card.component.scss']
 })
-export class NoteViewComponent implements OnInit {
+export class NoteCardComponent implements OnInit {
   @Input() note: any;
   isStarred: boolean = false;
 
