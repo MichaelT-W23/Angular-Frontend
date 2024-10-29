@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { MainPageComponent } from './main-page.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('MainPageComponent', () => {
   let component: MainPageComponent;
@@ -8,6 +8,9 @@ describe('MainPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      providers: [
+        provideHttpClient(withInterceptorsFromDi())
+      ],
       imports: [MainPageComponent]
     })
     .compileComponents();
@@ -17,7 +20,9 @@ describe('MainPageComponent', () => {
     fixture.detectChanges();
   });
 
+  
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SignInComponent } from './sign-in.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 describe('SignInComponent', () => {
   let component: SignInComponent;
@@ -8,6 +9,10 @@ describe('SignInComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      providers: [
+        provideHttpClient(withInterceptorsFromDi()),
+        { provide: ActivatedRoute, useValue: {} }
+      ],
       imports: [SignInComponent]
     })
     .compileComponents();
@@ -20,4 +25,5 @@ describe('SignInComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
 });

@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MatDialogRef } from '@angular/material/dialog';
 import { LogoutAlertComponent } from './logout-alert.component';
 
 describe('LogoutAlertComponent', () => {
@@ -8,7 +8,10 @@ describe('LogoutAlertComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LogoutAlertComponent]
+      imports: [LogoutAlertComponent],
+      providers: [
+        { provide: MatDialogRef, useValue: {} }
+      ]
     })
     .compileComponents();
 
@@ -17,7 +20,10 @@ describe('LogoutAlertComponent', () => {
     fixture.detectChanges();
   });
 
+  
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });
+
