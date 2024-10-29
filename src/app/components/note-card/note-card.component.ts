@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   selector: 'app-note-card',
   standalone: true,
   templateUrl: './note-card.component.html',
-  styleUrls: ['./note-card.component.scss']
+  styleUrls: ['./note-card.component.css']
 })
 export class NoteCardComponent implements OnInit, OnDestroy {
   @Input() note: any;
