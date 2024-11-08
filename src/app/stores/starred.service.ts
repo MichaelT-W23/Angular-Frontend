@@ -26,6 +26,10 @@ export class StarredService {
     localStorage.setItem('notes', JSON.stringify(notes));
   }
 
+  initializeNotes(notes: any[]): void {
+    this.notesSubject.next(notes);
+  }
+
   addNote(note: Omit<any, 'starred'>): void {
     const notes = this.notesSubject.value;
     notes.push({ ...note, starred: true });
