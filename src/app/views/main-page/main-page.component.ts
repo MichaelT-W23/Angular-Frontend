@@ -26,7 +26,11 @@ export class MainPageComponent implements OnInit {
     this.userId = this.authStore.getUserId();
     this.fetchUserNotes();
   }
-
+  
+  trackByNoteId(index: number, note: any): string {
+    return note.id;
+  }
+  
   private fetchUserNotes(): void {
     this.notesService.getAllUserNotes(this.userId).subscribe((notes: any[]) => {
       this.userNotes = notes;

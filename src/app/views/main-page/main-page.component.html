@@ -1,4 +1,8 @@
 <div class="notes-container">
-  <app-note-card *ngFor="let note of userNotes" [note]="note"></app-note-card>
+  <app-note-card 
+    *ngFor="let note of userNotes; trackBy: trackByNoteId" 
+    [note]="note">
+  </app-note-card>
 </div>
+
   
