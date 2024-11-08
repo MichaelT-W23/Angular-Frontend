@@ -27,7 +27,14 @@ export class StarredService {
   }
 
   initializeNotes(notes: any[]): void {
-    this.notesSubject.next(notes);
+    const currentNotes = this.notesSubject.value;
+
+    const mergedNotes = notes.map(note => {
+      const existingNote = currentNotes.find(n => n.id === note.id);
+      return existingNote ? existingNote : note;
+    });
+
+    this.notesSubject.next(mergedNotes);
   }
 
   addNote(note: Omit<any, 'starred'>): void {
