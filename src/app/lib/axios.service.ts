@@ -4,13 +4,14 @@ import { Observable, throwError, catchError, switchMap } from 'rxjs';
 import { tap } from 'rxjs';
 import { AuthService } from '../stores/auth.service';
 import { map } from 'rxjs/operators';
-
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AxiosService {
-  private baseURL = "http://127.0.0.1:8000";
+  //private baseURL = "http://127.0.0.1:8000";
+  private baseURL = environment.baseUrl;
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
