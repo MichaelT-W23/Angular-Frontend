@@ -31,10 +31,10 @@ export class SignUpComponent {
       const response = await firstValueFrom(this.userService.createNewUser(userData));
 
       if (response && response.user) {
+        this.authService.logout();
         const loginResponse = await this.authService.login(response);
 
         if (loginResponse) {
-          this.authService.logout();
           this.router.navigate(['/Dashboard']);
         } else {
           this.errorMessage = "Failed to log in after registration";
